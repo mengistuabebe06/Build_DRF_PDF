@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,9 +26,19 @@ SECRET_KEY = "django-insecure-rkz9*=e&1av3d=(xmy*+apv%5@6vhl#*9hy%%gm)hjged2&9e9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost:5173",
+    "127.0.0.1:5173",
+    "127.0.0.1:8000",
+    "127.0.0.1",  # Add '127.0.0.1' without the port
+]
 
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+    "http://localhost:5173",
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,11 +49,14 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "main",
+    "drf_spectacular",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -80,12 +94,25 @@ WSGI_APPLICATION = "Build_DRF.wsgi.application"
 #         "NAME": BASE_DIR / "db.sqlite3",
 #     }
 # }
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.djongo",
+#         "NAME": "testDb",
+#         "HOST": "localhost",
+#         "PORT": 27017,
+#     }
+# }
 DATABASES = {
     "default": {
         "ENGINE": "djongo",
-        "NAME": "testDb",
-        "HOST": "localhost",
-        "PORT": 27017,
+        "NAME": "testDb",  # Name of your MongoDB database
+        "CLIENT": {
+            "host": "mongodb://localhost:27017/",  # MongoDB host address (remove trailing slash)
+            "port": 27017,  # MongoDB port (default is 27017)
+            "username": "root",  # MongoDB username (if required)
+            "password": "root",  # MongoDB password (if required)
+        },
+        "ATOMIC_REQUESTS": True,  # Optional: Enable atomic requests
     }
 }
 
@@ -130,3 +157,19 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "PDF Project API",
+    "DESCRIPTION": "Your project description",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+    # OTHER SETTINGS
+}
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")

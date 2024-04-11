@@ -1,0 +1,57 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master # Change this to your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up Node.js for React Vite frontend
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      # Install dependencies and build React Vite frontend
+      - name: Install frontend dependencies
+        working-directory: frontend/
+        run: |
+          npm install
+          npm run build
+
+      # Set up Python for Django DRF backend
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      # Install Python dependencies for Django DRF backend
+      - name: Install backend dependencies
+        working-directory: backend/
+        run: |
+          pip install -r requirements.txt
+
+      # Run Django migrations (if applicable)
+      - name: Run Django migrations
+        working-directory: backend/
+        run: |
+          python manage.py migrate
+
+      # Collect static files for Django
+      - name: Collect static files
+        working-directory: backend/
+        run: |
+          python manage.py collectstatic --noinput
+
+      # Deploy to GitHub Pages or your hosting platform
+      - name: Deploy to hosting platform
+        run: |
+          # Add deployment commands here, e.g., deploy to GitHub Pages, Heroku, etc.
+          # Replace this comment with actual deployment commands

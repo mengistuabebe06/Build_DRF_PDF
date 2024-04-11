@@ -1,0 +1,27 @@
+openapi: 3.0.3
+info:
+  title: PDF Project API
+  version: 1.0.0
+  description: Your project description
+paths:
+  /process-pdf/:
+    post:
+      operationId: process_pdf_create
+      tags:
+      - process-pdf
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
