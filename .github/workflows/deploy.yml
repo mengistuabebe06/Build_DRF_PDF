@@ -50,7 +50,7 @@ jobs:
         run: |
           python manage.py collectstatic --noinput
 
-      - name: Deploy to hosting platform
-        run: |
-          # Add deployment commands here, e.g., deploy to GitHub Pages, Heroku, etc.
-          # Replace this comment with actual deployment commands
+      # - name: Deploy to hosting platform
+      #   run: |
+      #     # Add deployment commands here, e.g., deploy to GitHub Pages, Heroku, etc.
+      #     # Replace this comment with actual deployment commands
