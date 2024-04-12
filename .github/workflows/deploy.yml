@@ -42,7 +42,7 @@ jobs:
       - name: Run Django migrations
         working-directory: backend/
         run: |
-          python manage.py makegirations
+          python manage.py makemigrations
           python manage.py migrate
 
       # Collect static files for Django
