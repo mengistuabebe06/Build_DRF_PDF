@@ -1,5 +1,4 @@
-# mongodb_settings_template.py
-
+import os
 from django.conf import settings
 
 settings.DATABASES["default"]["ENGINE"] = "djongo"

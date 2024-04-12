@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+from django.conf import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -89,7 +90,6 @@ DATABASES = {
     "default": {
         "ENGINE": "djongo",
         "NAME": "Cluster0",
-        "ENFORCE_SCHEMA": False,
         "CLIENT": {
             "host": "mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
             "username": "mengistuabebe06",
