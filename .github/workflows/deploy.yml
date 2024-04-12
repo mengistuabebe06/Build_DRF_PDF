@@ -37,13 +37,8 @@ jobs:
 
       - name: Set up MongoDB connection
         run: |
-          sed -i "s/__HOST__/mongodb+srv:\/\/mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/g" ./backend/Build_DRF/mongodb_settings_template.py
-          sed -i "s/__USERNAME__/mengistuabebe06/g" ./backend/Build_DRF/mongodb_settings_template.py
-          sed -i "s/__PASSWORD__/apTd7lwCU3JRrQqb/g" ./backend/Build_DRF/mongodb_settings_template.py
-          cp ./backend/Build_DRF/mongodb_settings_template.py ./backend/Build_DRF/settings.py
+          mongo "mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
-      - name: Show updated settings.py
-        run: cat ./backend/Build_DRF/settings.py
 
       - name: Run Django migrations
         working-directory: backend/
