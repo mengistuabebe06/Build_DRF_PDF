@@ -102,7 +102,7 @@ DATABASES = {
         "NAME": "Cluster0",
         "ENFORCE_SCHEMA": False,
         "CLIENT": {
-            "host": "mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/",
+            "host": "mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
             "username": "mengistuabebe06",
             "password": "apTd7lwCU3JRrQqb",
             "authMechanism": "SCRAM-SHA-1",  # or 'SCRAM-SHA-256' for MongoDB Atlas
