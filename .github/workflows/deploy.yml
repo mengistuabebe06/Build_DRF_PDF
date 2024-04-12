@@ -37,7 +37,7 @@ jobs:
 
       - name: Set up MongoDB connection
         run: |
-          echo "from django.conf import settings\n\nsettings.DATABASES['default']['ENGINE'] = 'djongo'\nsettings.DATABASES['default']['NAME'] = 'Cluster0'\nsettings.DATABASES['default']['CLIENT'] = {'host': 'mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/', 'username': 'mengistuabebe06', 'password': 'apTd7lwCU3JRrQqb', 'authMechanism': 'SCRAM-SHA-1'}" > ./backend/Build_DRF/settings.py
+          echo "from django.conf import settings\n\nsettings.DATABASES['default']['ENGINE'] = 'djongo'\nsettings.DATABASES['default']['NAME'] = 'Cluster0'\nsettings.DATABASES['default']['CLIENT'] = {'host': 'mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/', 'username': 'mengistuabebe06', 'password': 'apTd7lwCU3JRrQqb'}" > ./backend/Build_DRF/settings.py
 
       - name: Run Django migrations
         working-directory: backend/
