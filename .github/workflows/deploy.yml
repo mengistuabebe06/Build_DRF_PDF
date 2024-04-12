@@ -39,7 +39,7 @@ jobs:
 
       - name: Set up MongoDB connection
         run: |
-          python -c "import pymongo; client = pymongo.MongoClient('mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+          python -c "import pymongo; client = pymongo.MongoClient('mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')"
 
       - name: Run Django migrations
         working-directory: backend/
