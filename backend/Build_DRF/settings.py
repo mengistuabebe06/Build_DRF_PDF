@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "main",
     "drf_spectacular",
     "corsheaders",
+    "djongo",
 ]
 
 MIDDLEWARE = [
