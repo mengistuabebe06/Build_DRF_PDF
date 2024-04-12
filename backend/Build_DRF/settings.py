@@ -95,18 +95,18 @@ WSGI_APPLICATION = "Build_DRF.wsgi.application"
 #     }
 # }
 
+
 DATABASES = {
     "default": {
         "ENGINE": "djongo",
-        "NAME": "Cluster0",  # Name of your MongoDB database
+        "NAME": "Cluster0",
+        "ENFORCE_SCHEMA": False,
         "CLIENT": {
-            # "host": "mongodb://localhost:27017/",  # MongoDB host address (remove trailing slash)
             "host": "mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/",
-            # "port": 27017,  # MongoDB port (default is 27017)
-            "username": "mengistuabebe06",  # MongoDB username (if required)
-            "password": "apTd7lwCU3JRrQqb",  # MongoDB password (if required)
+            "username": "mengistuabebe06",
+            "password": "apTd7lwCU3JRrQqb",
+            "authMechanism": "SCRAM-SHA-1",  # or 'SCRAM-SHA-256' for MongoDB Atlas
         },
-        "ATOMIC_REQUESTS": True,  # Optional: Enable atomic requests
     }
 }
 
