@@ -36,6 +36,7 @@ jobs:
           pip install djongo
           pip install pymongo
           pip install mongoengine
+          pip install dnspython
 
       - name: Set up MongoDB connection
         run: |
