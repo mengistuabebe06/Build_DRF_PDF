@@ -1,5 +1,5 @@
 media/
-# **/migrations/
+**/migrations/
 # Django #
 *.log
 *.pot
