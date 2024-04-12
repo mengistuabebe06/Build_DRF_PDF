@@ -98,7 +98,7 @@ WSGI_APPLICATION = "Build_DRF.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "djongo",
+        "ENGINE": "django.db.backends.djongo",
         "NAME": "Cluster0",
         "ENFORCE_SCHEMA": False,
         "CLIENT": {
