@@ -94,23 +94,17 @@ WSGI_APPLICATION = "Build_DRF.wsgi.application"
 #         "NAME": BASE_DIR / "db.sqlite3",
 #     }
 # }
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.djongo",
-#         "NAME": "testDb",
-#         "HOST": "localhost",
-#         "PORT": 27017,
-#     }
-# }
+
 DATABASES = {
     "default": {
         "ENGINE": "djongo",
-        "NAME": "testDb",  # Name of your MongoDB database
+        "NAME": "Cluster0",  # Name of your MongoDB database
         "CLIENT": {
-            "host": "mongodb://localhost:27017/",  # MongoDB host address (remove trailing slash)
-            "port": 27017,  # MongoDB port (default is 27017)
-            "username": "root",  # MongoDB username (if required)
-            "password": "root",  # MongoDB password (if required)
+            # "host": "mongodb://localhost:27017/",  # MongoDB host address (remove trailing slash)
+            "host": "mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/",
+            # "port": 27017,  # MongoDB port (default is 27017)
+            # "username": "root",  # MongoDB username (if required)
+            # "password": "root",  # MongoDB password (if required)
         },
         "ATOMIC_REQUESTS": True,  # Optional: Enable atomic requests
     }
