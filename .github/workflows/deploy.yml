@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - master # Change this to your main branch name
+      - master
 
 jobs:
   build:
@@ -13,45 +13,43 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Set up Node.js for React Vite frontend
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: "14"
 
-      # Install dependencies and build React Vite frontend
       - name: Install frontend dependencies
         working-directory: frontend/
         run: |
           npm install
           npm run build
 
-      # Set up Python for Django DRF backend
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: "3.x"
 
-      # Install Python dependencies for Django DRF backend
       - name: Install backend dependencies
         working-directory: backend/
         run: |
           pip install -r requirements.txt
+          pip install djongo
 
-      # Run Django migrations (if applicable)
+      - name: Set up MongoDB connection
+        run: |
+          echo "from django.conf import settings\n\nsettings.DATABASES['default']['ENGINE'] = 'djongo'\nsettings.DATABASES['default']['NAME'] = 'Cluster0'\nsettings.DATABASES['default']['CLIENT'] = {'host': 'mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', 'username': 'mengistuabebe06', 'password': 'apTd7lwCU3JRrQqb', 'authMechanism': 'SCRAM-SHA-1'}" > ./backend/your_project/settings.py
+
       - name: Run Django migrations
         working-directory: backend/
         run: |
           python manage.py makemigrations
           python manage.py migrate
 
-      # Collect static files for Django
-      - name: Collect static files
+      - name: Collect static files for Django
         working-directory: backend/
         run: |
           python manage.py collectstatic --noinput
 
-      # Deploy to GitHub Pages or your hosting platform
       - name: Deploy to hosting platform
         run: |
           # Add deployment commands here, e.g., deploy to GitHub Pages, Heroku, etc.
