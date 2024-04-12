@@ -103,8 +103,8 @@ DATABASES = {
             # "host": "mongodb://localhost:27017/",  # MongoDB host address (remove trailing slash)
             "host": "mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/",
             # "port": 27017,  # MongoDB port (default is 27017)
-            # "username": "root",  # MongoDB username (if required)
-            # "password": "root",  # MongoDB password (if required)
+            "username": "mengistuabebe06",  # MongoDB username (if required)
+            "password": "apTd7lwCU3JRrQqb",  # MongoDB password (if required)
         },
         "ATOMIC_REQUESTS": True,  # Optional: Enable atomic requests
     }
