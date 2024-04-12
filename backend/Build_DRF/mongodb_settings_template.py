@@ -1,5 +1,7 @@
 import os
-from django.conf import settings
+
+# from django.conf import settings
+from . import settings
 
 settings.DATABASES["default"]["ENGINE"] = "djongo"
 settings.DATABASES["default"]["NAME"] = "Cluster0"
