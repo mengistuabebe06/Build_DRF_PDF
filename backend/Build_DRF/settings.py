@@ -1,6 +1,5 @@
 from pathlib import Path
 import os
-from django.conf import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -94,7 +93,6 @@ DATABASES = {
             "host": "mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
             "username": "mengistuabebe06",
             "password": "apTd7lwCU3JRrQqb",
-            "authMechanism": "SCRAM-SHA-1",  # or 'SCRAM-SHA-256' for MongoDB Atlas
         },
     }
 }
