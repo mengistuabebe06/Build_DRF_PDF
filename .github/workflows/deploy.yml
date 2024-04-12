@@ -34,11 +34,11 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install djongo
+          sudo apt-get install -y mongodb-clients
 
       - name: Set up MongoDB connection
         run: |
-          mongo "mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-
+          mongo "***cluster0.nn8ns0i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
       - name: Run Django migrations
         working-directory: backend/
