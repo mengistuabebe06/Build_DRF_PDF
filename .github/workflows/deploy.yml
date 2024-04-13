@@ -45,10 +45,10 @@ jobs:
           python manage.py makemigrations
           python manage.py migrate
 
-      - name: Collect static files for Django
-        working-directory: backend/
-        run: |
-          python manage.py collectstatic
+      # - name: Collect static files for Django
+      #   working-directory: backend/
+      #   run: |
+      #     python manage.py collectstatic
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
