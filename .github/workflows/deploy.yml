@@ -34,10 +34,11 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install djongo==1.3.6
-          pip install pymongo
+          pip install pymongo==3.12.1
           pip install mongoengine
           pip install dnspython
           pip install pytz
+
 
       - name: Run Django migrations
         working-directory: backend/
