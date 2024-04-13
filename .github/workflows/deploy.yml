@@ -38,10 +38,6 @@ jobs:
           pip install mongoengine
           pip install dnspython
 
-      - name: Set up MongoDB connection
-        run: |
-          sed -i "/'ENGINE': 'django.db.backends.sqlite3'/'ENGINE': 'djongo',\\n 'NAME': 'Cluster0',\\n 'CLIENT': {\\n 'host': 'mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/',\\n },/" backend/Build_DRF/settings.py
-
       - name: Run Django migrations
         working-directory: backend/
         run: |
