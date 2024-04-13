@@ -45,18 +45,6 @@ jobs:
           python manage.py makemigrations
           python manage.py migrate
 
-      # - name: Collect static files for Django
-      #   working-directory: backend/
-      #   run: |
-      #     python manage.py collectstatic
-
-      # - name: Deploy to GitHub Pages
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     deploy_key: django-insecure-rkz9*=e&1av3d=(xmy*+apv%5@6vhl#*9hy%%gm)hjged2&9e9
-      #     publish_dir: ./dist # Change this to your React build directory
-      #     cname: menge.com # Optional: add a custom domain
-
       - name: Clean up
         run: |
           # Clean up any temporary files or configurations
@@ -65,4 +53,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: /frontend/dist
+          publish_dir: frontend/dist
