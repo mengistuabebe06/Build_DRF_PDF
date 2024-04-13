@@ -18,9 +18,9 @@ jobs:
         with:
           node-version: "14"
 
-      - name: Install frontend dependencies
-        working-directory: frontend/
+      - name: Build React app
         run: |
+          cd frontend
           npm install
           npm run build
 
@@ -45,27 +45,11 @@ jobs:
           python manage.py makemigrations
           python manage.py migrate
 
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v2
-        with:
-          name: production-files
-          path: ./frontend/dist
-
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: production-files
-          path: ./frontend/dist
-
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/dist
+          branch: gh-pages
+          folder: frontend/build
+          cleanup: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
