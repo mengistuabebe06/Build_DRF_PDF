@@ -91,6 +91,7 @@ DATABASES = {
         "NAME": "Cluster0",
         "CLIENT": {
             "host": "mongodb+srv://mengistuabebe06:apTd7lwCU3JRrQqb@cluster0.nn8ns0i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+            "port": 27017,
             "username": "mengistuabebe06",
             "password": "apTd7lwCU3JRrQqb",
         },
