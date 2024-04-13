@@ -49,7 +49,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
-          folder: frontend/build
+          folder: frontend/dist
           cleanup: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
