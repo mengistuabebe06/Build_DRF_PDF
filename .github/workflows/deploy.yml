@@ -37,6 +37,7 @@ jobs:
           pip install pymongo
           pip install mongoengine
           pip install dnspython
+          pip install pytz
 
       - name: Run Django migrations
         working-directory: backend/
