@@ -33,7 +33,7 @@ jobs:
         working-directory: backend/
         run: |
           pip install -r requirements.txt
-          pip install djongo
+          pip install djongo==1.3.6
           pip install pymongo
           pip install mongoengine
           pip install dnspython
