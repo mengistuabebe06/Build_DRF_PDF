@@ -29,7 +29,13 @@ const PdfProcessor = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <input type="file" onChange={handleFileChange} />
-        <button type="submit">Process PDF</button>
+        <button
+          type="submit"
+          className=""
+          style={{ color: "blue", backgroundColor: "white" }}
+        >
+          Process PDF
+        </button>
       </form>
 
       <ExtractedDataList></ExtractedDataList>
