@@ -19,8 +19,8 @@ jobs:
           node-version: "14"
 
       - name: Build React app
+        working-directory: frontend/
         run: |
-          cd frontend
           npm install
           npm run build
 
@@ -49,4 +49,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: cd frontend/dist
+          publish_dir: cd /dist
