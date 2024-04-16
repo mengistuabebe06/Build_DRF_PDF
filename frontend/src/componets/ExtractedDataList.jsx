@@ -10,7 +10,9 @@ const ExtractedDataList = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:8000/extracted_data");
+      const response = await fetch(
+        "https://build-drf-j3hrmc2g9-pdf-projects.vercel.app/extracted_data"
+      );
       if (response.ok) {
         const jsonData = await response.json();
         setData(jsonData);

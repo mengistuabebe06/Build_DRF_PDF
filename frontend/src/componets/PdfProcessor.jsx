@@ -16,7 +16,7 @@ const PdfProcessor = () => {
     formData.append("pdf_file", file);
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/process_pdf/",
+        "https://build-drf-j3hrmc2g9-pdf-projects.vercel.app/process_pdf/",
         formData
       );
       setResponse(response.data);
