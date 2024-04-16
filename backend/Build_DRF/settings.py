@@ -18,7 +18,9 @@ ALLOWED_HOSTS = [
     "localhost:5173",
     "127.0.0.1:5173",
     "127.0.0.1:8000",
+    "https://mengistuabebe06.github.io/Build_DRF_PDF/",
     "127.0.0.1",  # Add '127.0.0.1' without the port
+    ".vercel.application",
 ]
 
 
@@ -26,6 +28,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
     "http://127.0.0.1:8000",
     "http://localhost:5173",
+    "https://mengistuabebe06.github.io",
 ]
 # Application definition
 
